@@ -1,0 +1,10 @@
+rootProject.name = 'teamsystem-cloud'
+include 'teamsystem-api'
+include 'teamsystem-api:teamsystem-feign'
+include 'teamsystem-api:teamsystem-consumer-test'
+include 'teamsystem-api:teamsystem-provider-test'
+include 'teamsystem-api:teamsystem-auth-test'
+include 'teamsystem-gateway'
+include 'teamsystem-security'
+include 'teamsystem-security:teamsystem-auth-server'
+
