@@ -1,6 +1,0 @@
-subprojects {
-    dependencies {
-        implementation 'org.springframework.cloud:spring-cloud-starter-security'
-        implementation 'org.springframework.cloud:spring-cloud-starter-oauth2'
-    }
-}
