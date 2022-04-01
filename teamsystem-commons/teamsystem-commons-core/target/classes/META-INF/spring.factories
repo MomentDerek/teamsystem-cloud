@@ -1,4 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.teamsystem.common.core.config.BaseConfiguration
-org.springframework.context.ApplicationListener=\
-com.teamsystem.common.core.listener.LogMDCListener
