@@ -12,6 +12,7 @@
     <artifactId>teamsystem-data-entity</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <module>teamsystem-data-entity-auth-test</module>
     </modules>
 
     <dependencies>
