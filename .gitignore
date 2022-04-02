@@ -34,3 +34,4 @@ out/
 *.log
 
 target/
+/generator/
