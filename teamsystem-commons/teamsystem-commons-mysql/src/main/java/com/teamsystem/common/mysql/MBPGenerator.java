@@ -1,7 +1,11 @@
 package com.teamsystem.common.mysql;
 
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
+import com.baomidou.mybatisplus.generator.config.TemplateType;
 import com.teamsystem.data.base.BaseEntity;
+
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * MybatisPlus 代码生成器
@@ -14,7 +18,8 @@ public class MBPGenerator {
     private static final String userName = "root";
     private static final String password = "momincong";
     private static final String author = "Moment";
-    private static final String outputDir = "";
+    private static final String outputDir = System.getProperty("user.dir") + "/generator";
+    private static final String commentDateFormat = "yyyy-MM-dd hh:mm:ss";
 
     private static final String packageName = "com.teamsystem.common.mysql";
     private static final String moduleName = "";
@@ -25,17 +30,31 @@ public class MBPGenerator {
     private static final String xmlPackage = "mapper.xml";
     private static final String controllerPackage = "controller";
 
+    /**
+     * 在创建实体类属性的swagger注解时创建注释
+     */
+    private static final Boolean enableFieldCommentWithSwagger = true;
+
     public static void main(String[] args) {
+        System.out.println("Output Dir: " + outputDir);
+
         FastAutoGenerator.create(url, userName, password)
+                //全局配置
                 .globalConfig(builder -> {
-                    builder.author(author)
-                            //.outputDir(outputDir)
+                    builder
+                            .author(author)
+                            .outputDir(outputDir)
+                            //启用swagger
                             .enableSwagger()
+                            //文件生成覆盖
                             .fileOverride()
-                            .disableOpenDir();
+                            //关闭生成后自动打开文件夹
+                            .disableOpenDir()
+                            .commentDate(commentDateFormat);
                 })
                 .packageConfig(builder -> {
-                    builder.parent(packageName)
+                    builder
+                            .parent(packageName)
                             .moduleName(moduleName)
                             .entity(entityPackage)
                             .service(servicePackage)
@@ -45,11 +64,31 @@ public class MBPGenerator {
                             .controller(controllerPackage);
                 })
                 .strategyConfig(builder -> {
-                    builder.entityBuilder()
+                    builder
+                            //entity配置
+                            .entityBuilder()
+                            //启用lombok
                             .enableLombok()
+                            //生成字段关联注解
                             .enableTableFieldAnnotation()
                             .superClass(BaseEntity.class)
-                            .addSuperEntityColumns("revision", "create_time", "update_time", "del_flag");
+                            .addSuperEntityColumns("revision", "create_time", "update_time", "del_flag")
+                            .serviceBuilder()
+                            .formatServiceFileName("%sMBPService");
+                })
+                .templateConfig(builder -> {
+                    builder
+                            .disable(TemplateType.CONTROLLER,TemplateType.SERVICEIMPL)
+                            .entity("/templates/entity.java")
+                            .service("/templates/service.java")
+                            .mapper("/templates/mapper.java")
+                            .mapperXml("/templates/mapper.xml");
+                })
+                .injectionConfig(builder -> {
+                    Map<String, Object> customMap = new TreeMap<>();
+                    customMap.put("enableFieldCommentWithSwagger", enableFieldCommentWithSwagger);
+
+                    builder.customMap(customMap);
                 })
                 .execute();
     }
