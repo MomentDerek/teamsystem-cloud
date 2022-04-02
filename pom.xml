@@ -49,6 +49,8 @@
         <springcloud-alibaba.version>2.2.7.RELEASE</springcloud-alibaba.version>
 
         <maven-plugin.version>3.8.1</maven-plugin.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <jdk.version>1.8</jdk.version>
         <baisc.version>1.0</baisc.version>
 
