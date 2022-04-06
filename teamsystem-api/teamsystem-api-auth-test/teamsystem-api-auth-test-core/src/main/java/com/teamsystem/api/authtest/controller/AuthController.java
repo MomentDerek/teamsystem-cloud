@@ -6,9 +6,6 @@ import com.teamsystem.common.web.response.RUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-
-
-
 @RestController
 @RequestMapping("/authtest")
 public class AuthController {

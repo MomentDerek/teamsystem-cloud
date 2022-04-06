@@ -5,17 +5,30 @@
     <parent>
         <artifactId>teamsystem-api</artifactId>
         <groupId>com.momincong</groupId>
-        <version>1.0</version>
+        <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>teamsystem-api-auth-test</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>teamsystem-api-auth-test-core</module>
         <module>teamsystem-api-auth-test-feign</module>
         <module>teamsystem-api-auth-test-protocol</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.momincong</groupId>
+            <artifactId>teamsystem-data-auth-test</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.momincong</groupId>
+            <artifactId>teamsystem-commons-web</artifactId>
+            <version>${revision}</version>
+        </dependency>
+    </dependencies>
 
 </project>

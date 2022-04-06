@@ -5,17 +5,34 @@
     <parent>
         <artifactId>teamsystem-cloud</artifactId>
         <groupId>com.momincong</groupId>
-        <version>1.0</version>
+        <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>teamsystem-data</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>teamsystem-data-entity</module>
-        <module>teamsystem-data-mapper</module>
         <module>teamsystem-data-base</module>
+        <module>teamsystem-data-auth-test</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+        </dependency>
+    </dependencies>
+
 
 
 </project>

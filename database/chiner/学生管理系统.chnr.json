@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.5.7",
   "createdTime": "2022-4-1 12:15:01",
-  "updatedTime": "2022-4-1 15:29:57",
+  "updatedTime": "2022-4-3 17:12:44",
   "profile": {
     "default": {
       "db": "62F6132C-300A-495D-8546-486B7126CA0C",
@@ -2922,7 +2922,7 @@
           "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "E81B6320-27BE-43CC-8FAD-B3E368E5143C",
+          "domain": "684E1873-98AA-4D0D-8F0B-13A15BD85228",
           "id": "73FCCD3D-A3E2-495E-B848-94F031512157"
         },
         {
@@ -3517,6 +3517,15 @@
       "scale": "",
       "uiHint": "",
       "id": "E81B6320-27BE-43CC-8FAD-B3E368E5143C"
+    },
+    {
+      "defKey": "PathText",
+      "defName": "路径文本",
+      "applyFor": "2A8D97C2-8EE7-41E7-A7B4-841B797A551B",
+      "len": 100,
+      "scale": "",
+      "uiHint": "",
+      "id": "684E1873-98AA-4D0D-8F0B-13A15BD85228"
     }
   ],
   "dbConn": [

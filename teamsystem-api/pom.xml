@@ -5,7 +5,7 @@
     <parent>
         <artifactId>teamsystem-cloud</artifactId>
         <groupId>com.momincong</groupId>
-        <version>1.0</version>
+        <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -38,17 +38,14 @@
         <!-- 内部依赖 -->
         <dependency>
             <groupId>com.momincong</groupId>
-            <artifactId>teamsystem-commons-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.momincong</groupId>
-            <artifactId>teamsystem-commons-core</artifactId>
+            <artifactId>teamsystem-commons</artifactId>
+            <version>${revision}</version>
         </dependency>
 
         <dependency>
             <groupId>com.momincong</groupId>
             <artifactId>teamsystem-config</artifactId>
+            <version>${revision}</version>
         </dependency>
     </dependencies>
 

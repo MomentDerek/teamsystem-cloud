@@ -15,6 +15,8 @@ import java.time.LocalDateTime;
 @TableName(autoResultMap = true)
 public class BaseEntity implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     /**
      * 乐观锁
      */

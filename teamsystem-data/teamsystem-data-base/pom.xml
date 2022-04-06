@@ -6,22 +6,11 @@
     <parent>
         <artifactId>teamsystem-data</artifactId>
         <groupId>com.momincong</groupId>
-        <version>1.0</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>teamsystem-data-base</artifactId>
 
-
     <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-annotation</artifactId>
-        </dependency>
     </dependencies>
-
 </project>

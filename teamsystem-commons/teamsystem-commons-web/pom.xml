@@ -5,7 +5,7 @@
     <parent>
         <artifactId>teamsystem-commons</artifactId>
         <groupId>com.momincong</groupId>
-        <version>1.0</version>
+        <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -18,10 +18,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.momincong</groupId>
-            <artifactId>teamsystem-commons-core</artifactId>
-        </dependency>
+
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -35,7 +32,14 @@
 
         <dependency>
             <groupId>com.momincong</groupId>
-            <artifactId>teamsystem-data-base</artifactId>
+            <artifactId>teamsystem-data</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.momincong</groupId>
+            <artifactId>teamsystem-commons</artifactId>
+            <version>${revision}</version>
         </dependency>
 
         <!-- Nacos注册中心的相关依赖 -->

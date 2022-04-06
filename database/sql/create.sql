@@ -135,7 +135,7 @@ CREATE TABLE sys_permission
     update_time   DATETIME     NOT NULL COMMENT '更新时间',
     del_flag      VARCHAR(1)   NOT NULL DEFAULT 0 COMMENT '逻辑删除',
     team_id       bigint       NOT NULL COMMENT '团队ID',
-    path_rule     VARCHAR(900) NOT NULL COMMENT '路径规则',
+    path_rule     VARCHAR(100) NOT NULL COMMENT '路径规则',
     function_rule VARCHAR(50)  NOT NULL COMMENT '操作规则',
     PRIMARY KEY (id)
 ) COMMENT = '权限规则系统表';
