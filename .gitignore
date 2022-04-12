@@ -35,3 +35,5 @@ out/
 
 target/
 /generator/
+
+.flattened-pom.xml
