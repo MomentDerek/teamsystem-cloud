@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.stereotype.Component;
@@ -44,11 +45,12 @@ public class TokenConvertFilter implements GlobalFilter, Ordered {
         Jwt decode = jwtDecoder.decode(realToken);
         log.debug("workId: " + decode.getClaim("user_name"));
         log.debug("authorities: " + decode.getClaim("authorities"));
-        exchange.getAttributes().put("workId", decode.getClaim("user_name"));
         String authorities = decode.getClaim("authorities").toString();
-        exchange.getAttributes().put("authorities", authorities.substring(2, authorities.length() - 2));
-        exchange.getAttributes().remove("Authorization");
-        return chain.filter(exchange);
+        ServerHttpRequest request = exchange.getRequest().mutate()
+                .headers(httpHeaders -> httpHeaders.remove("Authorization"))
+                .header("workId", decode.getClaim("user_name").toString())
+                .header("Authorities", authorities.substring(2, authorities.length() - 2)).build();
+        return chain.filter(exchange.mutate().request(request).build());
     }
 
     @Override

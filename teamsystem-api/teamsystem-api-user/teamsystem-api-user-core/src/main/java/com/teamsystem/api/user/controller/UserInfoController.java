@@ -6,6 +6,8 @@ import com.teamsystem.common.web.response.RUtils;
 import com.teamsystem.data.dto.UserInfoDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
 
 /**
  * TODO
@@ -19,8 +21,8 @@ public class UserInfoController {
 
     private final UserInfoService userInfoService;
 
-    @GetMapping("/{workId}")
-    public R<UserInfoDto> getUserInfo(@PathVariable("workId") String workId) {
+    @GetMapping("/")
+    public R<UserInfoDto> getUserInfo(@RequestHeader("workId") String workId) {
         return RUtils.create(userInfoService.getUserInfoByWorkId(workId));
     }
 
