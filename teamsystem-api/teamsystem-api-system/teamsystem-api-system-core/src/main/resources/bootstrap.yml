@@ -1,6 +1,6 @@
 spring:
   application:
-    name: systemService
+    name: api-system
   profiles:
     active: "@runtime-profile@"
 server:

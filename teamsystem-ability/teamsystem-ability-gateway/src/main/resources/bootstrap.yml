@@ -49,9 +49,9 @@ spring:
             - Path=/oauth/authorize
           filters:
             - PreserveHostHeader
-#        - id: api-test
-#          uri: lb://api-test
-#          predicates:
-#            - Path=/api/test/**
-#          filters:
-#            - StripPrefix=1
+        - id: api-test
+          uri: lb://api-user-info
+          predicates:
+            - Path=/api/user/info/**
+          filters:
+            - StripPrefix=1

@@ -16,6 +16,7 @@
     <modules>
         <module>teamsystem-data-base</module>
         <module>teamsystem-data-system</module>
+        <module>teamsystem-data-user</module>
     </modules>
 
     <dependencies>
