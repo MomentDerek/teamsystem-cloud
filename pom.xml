@@ -16,51 +16,24 @@
         <module>teamsystem-config</module>
         <module>teamsystem-data</module>
         <module>teamsystem-generator</module>
+        <module>teamsystem-dependencies</module>
     </modules>
 
-    <repositories>
-        <repository>
-            <id>aliyun</id>
-            <url>https://maven.aliyun.com/repository/public</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>aliyun-plugin</id>
-            <url>https://maven.aliyun.com/repository/public</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
 
     <properties>
         <springboot.version>2.3.12.RELEASE</springboot.version>
         <springcloud.version>Hoxton.SR12</springcloud.version>
         <springcloud-alibaba.version>2.2.7.RELEASE</springcloud-alibaba.version>
+        <log4j2.version>2.17.1</log4j2.version>
 
         <maven-plugin.version>3.8.1</maven-plugin.version>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <jdk.version>1.8</jdk.version>
         <revision>1.0</revision>
 
-        <mybatis-plus.version>3.5.1</mybatis-plus.version>
-        <druid.version>1.2.8</druid.version>
-        <fastjson.version>1.2.78</fastjson.version>
-        <log4j2.version>2.17.1</log4j2.version>
-        <springdoc.version>1.6.6</springdoc.version>
-        <nimbus-jose-jwt.version>9.21</nimbus-jose-jwt.version>
+
     </properties>
 
     <!-- 添加SpringBoot、SpringCloud Netflix、SpringCloud alibaba的相关基础依赖 -->
@@ -102,50 +75,12 @@
                 <type>pom</type>
             </dependency>
 
-            <!-- mybatis plus -->
             <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-generator</artifactId>
-                <version>${mybatis-plus.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-annotation</artifactId>
-                <version>${mybatis-plus.version}</version>
-            </dependency>
-
-            <!--druid-->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
-                <version>${druid.version}</version>
-            </dependency>
-
-            <!--fastjson-->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
-            </dependency>
-
-            <!--springdoc-->
-            <dependency>
-                <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi-ui</artifactId>
-                <version>${springdoc.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.nimbusds</groupId>
-                <artifactId>nimbus-jose-jwt</artifactId>
-                <version>${nimbus-jose-jwt.version}</version>
+                <groupId>com.momincong</groupId>
+                <artifactId>teamsystem-dependencies</artifactId>
+                <version>${revision}</version>
+                <scope>import</scope>
+                <type>pom</type>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -202,6 +137,32 @@
                     <encoding>UTF-8</encoding>
                     <showDeprecation>true</showDeprecation>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.2.7</version>
+                <configuration>
+                    <!--是否更新pom文件，此处还有更高级的用法-->
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
 

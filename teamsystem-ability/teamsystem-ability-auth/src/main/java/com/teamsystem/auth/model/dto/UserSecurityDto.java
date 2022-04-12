@@ -1,11 +1,15 @@
 package com.teamsystem.auth.model.dto;
 
+import com.teamsystem.common.core.utils.CachedBeanCopier;
+import com.teamsystem.data.dto.SysUserSecurityDto;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 包含密码等安全信息的用户Dto
@@ -13,6 +17,7 @@ import java.util.List;
  * @author Moment
  */
 @Data
+@NoArgsConstructor
 public class UserSecurityDto implements UserDetails {
 
     /**
@@ -48,7 +53,16 @@ public class UserSecurityDto implements UserDetails {
     /**
      * 角色
      */
-    private List<SysRoleDto> roleDtoList;
+    private List<RoleSecurityDto> roleDtoList;
+
+    public UserSecurityDto(SysUserSecurityDto sysUserSecurityDto) {
+        CachedBeanCopier.copy(sysUserSecurityDto, this);
+        this.roleDtoList = sysUserSecurityDto.getRoleDtoList().stream().map(roleDto -> {
+            RoleSecurityDto roleSecurityDto = new RoleSecurityDto();
+            CachedBeanCopier.copy(roleDto, roleSecurityDto);
+            return roleSecurityDto;
+        }).collect(Collectors.toList());
+    }
 
     @Override
     public String getUsername() {

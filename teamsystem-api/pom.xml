@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <version>${revision}</version>
     <artifactId>teamsystem-api</artifactId>
     <packaging>pom</packaging>
     <modules>
@@ -39,17 +40,13 @@
         <dependency>
             <groupId>com.momincong</groupId>
             <artifactId>teamsystem-commons-web</artifactId>
-            <version>${revision}</version>
+            <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.momincong</groupId>
-            <artifactId>teamsystem-commons-mysql</artifactId>
-            <version>${revision}</version>
-        </dependency>
+
         <dependency>
             <groupId>com.momincong</groupId>
             <artifactId>teamsystem-config</artifactId>
-            <version>${revision}</version>
+            <version>${project.version}</version>
         </dependency>
 
 

@@ -5,7 +5,7 @@
     <parent>
         <artifactId>teamsystem-api-system</artifactId>
         <groupId>com.momincong</groupId>
-        <version>1.0</version>
+        <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -15,12 +15,18 @@
         <dependency>
             <groupId>com.momincong</groupId>
             <artifactId>teamsystem-commons-core</artifactId>
-            <version>${revision}</version>
+            <version>${project.version}</version>
         </dependency>
+
         <dependency>
             <groupId>com.momincong</groupId>
             <artifactId>teamsystem-api-system-feign</artifactId>
-            <version>${revision}</version>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.momincong</groupId>
+            <artifactId>teamsystem-data-system-mapper</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>

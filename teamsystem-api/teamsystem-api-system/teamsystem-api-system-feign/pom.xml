@@ -5,7 +5,7 @@
     <parent>
         <artifactId>teamsystem-api-system</artifactId>
         <groupId>com.momincong</groupId>
-        <version>1.0</version>
+        <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -16,6 +16,11 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.momincong</groupId>
+            <artifactId>teamsystem-data-system-model</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

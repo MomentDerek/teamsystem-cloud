@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>teamsystem-commons-web</artifactId>
+    <version>${revision}</version>
 
     <!-- SpringBoot - Web -->
     <dependencies>
@@ -17,8 +18,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
-
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -28,18 +27,6 @@
         <dependency>
             <groupId>jakarta.validation</groupId>
             <artifactId>jakarta.validation-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.momincong</groupId>
-            <artifactId>teamsystem-data</artifactId>
-            <version>${revision}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.momincong</groupId>
-            <artifactId>teamsystem-commons</artifactId>
-            <version>${revision}</version>
         </dependency>
 
         <!-- Nacos注册中心的相关依赖 -->

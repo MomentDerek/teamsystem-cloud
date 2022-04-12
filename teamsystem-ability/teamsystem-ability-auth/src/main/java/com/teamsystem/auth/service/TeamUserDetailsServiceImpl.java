@@ -25,8 +25,7 @@ public class TeamUserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String workId) throws UsernameNotFoundException {
-        UserSecurityDto securityDto = new UserSecurityDto();
-        CachedBeanCopier.copy(sysFeignService.getUserSecurityByWorkId(workId).getData(),securityDto);
+        UserSecurityDto securityDto = new UserSecurityDto(sysFeignService.getUserSecurityByWorkId(workId).getData());
         return securityDto;
     }
 }

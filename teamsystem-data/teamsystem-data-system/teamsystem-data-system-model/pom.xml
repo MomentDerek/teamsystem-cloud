@@ -3,19 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>teamsystem-data</artifactId>
+        <artifactId>teamsystem-data-system</artifactId>
         <groupId>com.momincong</groupId>
         <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>teamsystem-data-system</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>teamsystem-data-system-model</artifactId>
     <version>${revision}</version>
-
-    <modules>
-        <module>teamsystem-data-system-model</module>
-        <module>teamsystem-data-system-mapper</module>
-    </modules>
 
 </project>

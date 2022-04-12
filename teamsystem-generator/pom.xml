@@ -31,8 +31,8 @@
         <dependency>
             <groupId>com.momincong</groupId>
             <artifactId>teamsystem-data-base</artifactId>
-            <version>${revision}</version>
-        </dependency>
+            <version>${project.version}</version>
+                    </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

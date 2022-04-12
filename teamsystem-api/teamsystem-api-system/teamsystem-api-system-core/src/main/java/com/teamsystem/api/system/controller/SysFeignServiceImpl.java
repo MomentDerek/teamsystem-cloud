@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Moment
  */
 @RestController
-@RequestMapping("/system")
+@RequestMapping()
 public class SysFeignServiceImpl implements SysFeignService {
 
     private final SysSecurityService securityService;

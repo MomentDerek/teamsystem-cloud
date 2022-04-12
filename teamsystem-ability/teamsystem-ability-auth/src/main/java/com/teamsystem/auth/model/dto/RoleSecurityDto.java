@@ -9,7 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
  * @author Moment
  */
 @Data
-public class SysRoleDto implements GrantedAuthority {
+public class RoleSecurityDto implements GrantedAuthority {
 
     /**
      * 团队ID
