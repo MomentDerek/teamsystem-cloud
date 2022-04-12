@@ -2,3 +2,14 @@ spring:
   profiles:
     include:
       - nacos-dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/teamsystem_cloud?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: momincong
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG

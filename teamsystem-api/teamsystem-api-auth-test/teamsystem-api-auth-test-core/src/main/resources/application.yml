@@ -1,7 +1,0 @@
-server:
-  port: 8092
-spring:
-  application:
-    name: auth-test
-  profiles:
-    active: '@runtime-profile@'

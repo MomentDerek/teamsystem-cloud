@@ -60,6 +60,7 @@
         <fastjson.version>1.2.78</fastjson.version>
         <log4j2.version>2.17.1</log4j2.version>
         <springdoc.version>1.6.6</springdoc.version>
+        <nimbus-jose-jwt.version>9.21</nimbus-jose-jwt.version>
     </properties>
 
     <!-- 添加SpringBoot、SpringCloud Netflix、SpringCloud alibaba的相关基础依赖 -->
@@ -140,6 +141,12 @@
                 <artifactId>springdoc-openapi-ui</artifactId>
                 <version>${springdoc.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>${nimbus-jose-jwt.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -166,9 +173,20 @@
         <!-- 配置占位符的统一生效 -->
         <resources>
             <resource>
+                <!-- 其他文件不替换占位符 -->
+                <filtering>false</filtering>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+            <resource>
                 <!-- 占位符替换 -->
                 <filtering>true</filtering>
                 <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.yml</include>
+                </includes>
             </resource>
         </resources>
 

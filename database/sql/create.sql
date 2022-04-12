@@ -10,7 +10,7 @@ CREATE TABLE sys_user
     username    VARCHAR(50) NOT NULL COMMENT '用户名',
     password    VARCHAR(20) NOT NULL COMMENT '密码',
     nickname    VARCHAR(10) COMMENT '昵称',
-    email       VARCHAR(20) COMMENT '邮箱',
+    email       VARCHAR(50) COMMENT '邮箱',
     phone       VARCHAR(15) COMMENT '手机号',
     PRIMARY KEY (id)
 ) COMMENT = '用户系统表';

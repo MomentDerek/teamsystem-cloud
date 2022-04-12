@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: systemService
+  profiles:
+    active: "@runtime-profile@"
+server:
+  port: 8091

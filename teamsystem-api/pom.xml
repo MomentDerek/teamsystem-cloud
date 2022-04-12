@@ -12,7 +12,7 @@
     <artifactId>teamsystem-api</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>teamsystem-api-auth-test</module>
+        <module>teamsystem-api-system</module>
     </modules>
 
     <dependencies>
@@ -38,15 +38,21 @@
         <!-- 内部依赖 -->
         <dependency>
             <groupId>com.momincong</groupId>
-            <artifactId>teamsystem-commons</artifactId>
+            <artifactId>teamsystem-commons-web</artifactId>
             <version>${revision}</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.momincong</groupId>
+            <artifactId>teamsystem-commons-mysql</artifactId>
+            <version>${revision}</version>
+        </dependency>
         <dependency>
             <groupId>com.momincong</groupId>
             <artifactId>teamsystem-config</artifactId>
             <version>${revision}</version>
         </dependency>
+
+
     </dependencies>
 
 </project>

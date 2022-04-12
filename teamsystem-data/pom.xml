@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>teamsystem-data-base</module>
-        <module>teamsystem-data-auth-test</module>
+        <module>teamsystem-data-system</module>
     </modules>
 
     <dependencies>

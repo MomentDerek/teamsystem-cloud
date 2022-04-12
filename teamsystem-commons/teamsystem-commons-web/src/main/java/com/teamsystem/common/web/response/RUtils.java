@@ -9,7 +9,7 @@ public class RUtils {
     /**
      * @return 表示成功的R对象
      */
-    public static <T> R create(T data){
+    public static <T> R<T> create(T data){
         return new R(Codes.SUCCESS.getCode(), Codes.SUCCESS.getMsg(), data);
     }
 
@@ -18,8 +18,8 @@ public class RUtils {
      * @param <T> 泛型
      * @return 指定响应枚举的R对象
      */
-    public static <T> R create(Codes codes, T data){
-        return new R(codes.getCode(), codes.getMsg(), data);
+    public static <T> R<T> create(Codes codes, T data){
+        return new R<T>(codes.getCode(), codes.getMsg(), data);
     }
 
     /**

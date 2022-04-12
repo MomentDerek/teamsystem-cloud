@@ -11,28 +11,26 @@ public class MBPGenerator {
 
     public static void main(String[] args) throws Exception {
         FastGenerator generator = FastGenerator.getFastGenerator()
-                //.url("jdbc:mysql://localhost:3306/teamsystem_cloud?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai")
-                .url("jdbc:mysql://localhost:3306/genshin_map_archive?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai")
+                .url("jdbc:mysql://localhost:3306/teamsystem_cloud?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai")
                 .userName("root")
                 .password("momincong")
                 .author("Moment")
                 .outputDir("/generator")
-                .outputDir("/genshin_generator")
                 .commentDateFormat("yyyy-MM-dd hh:mm:ss");
 
         //generator.entityPackage("com.teamsystem.data.entity")
         //        .mapperPackage("com.teamsystem.data.mapper")
-        //        .xmlPackage("xml")
+        //        .xmlPackage("mapper")
         //        .apiPackageName("com.teamsystem.api")
         //        .apiModuleName("authtest")
         //        .servicePackageAfterApi("service.mbp")
         //        .serviceImplPackageAfterApi("service.mbp.impl")
         //        .build();
-        generator.entityPackage("site.yuanshen.archive.model.entity")
-                .mapperPackage("site.yuanshen.archive.mapper")
-                .xmlPackage("xml")
-                .apiPackageName("site.yuanshen")
-                .apiModuleName("archive")
+        generator.entityPackage("com.momincong.oauth2test.entity")
+                .mapperPackage("com.momincong.oauth2test.mapper")
+                .xmlPackage("mapper")
+                .apiPackageName("com.momincong")
+                .apiModuleName("oauth2test")
                 .servicePackageAfterApi("service.mbp")
                 .serviceImplPackageAfterApi("service.mbp.impl")
                 .build();
