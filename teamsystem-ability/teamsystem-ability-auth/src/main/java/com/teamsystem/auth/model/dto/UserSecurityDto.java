@@ -57,11 +57,10 @@ public class UserSecurityDto implements UserDetails {
 
     public UserSecurityDto(SysUserSecurityDto sysUserSecurityDto) {
         CachedBeanCopier.copy(sysUserSecurityDto, this);
-        this.roleDtoList = sysUserSecurityDto.getRoleDtoList().stream().map(roleDto -> {
-            RoleSecurityDto roleSecurityDto = new RoleSecurityDto();
-            CachedBeanCopier.copy(roleDto, roleSecurityDto);
-            return roleSecurityDto;
-        }).collect(Collectors.toList());
+        this.roleDtoList = sysUserSecurityDto.getRoleDtoList()
+                .stream().map(
+                        roleDto -> (RoleSecurityDto)CachedBeanCopier.copy(roleDto, RoleSecurityDto.class)
+                ).collect(Collectors.toList());
     }
 
     @Override
