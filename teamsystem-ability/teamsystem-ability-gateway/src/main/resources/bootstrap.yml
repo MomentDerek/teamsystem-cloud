@@ -1,0 +1,57 @@
+server:
+  port: 8101
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway.route.RouteDefinitionRouteLocator: INFO
+          gateway: DEBUG
+    com.teamsystem.gateway.oauth2.TokenConvertFilter: DEBUG
+
+spring:
+  application:
+    name: oauth2-gateway
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # jwk URL 获取公钥，填写auth模块的端口
+          jwk-set-uri: http://localhost:8100/.well-known/jwks.json
+
+  cloud:
+    nacos:
+      server-addr: http://localhost:8848
+      username: nacos
+      password: nacos
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 开启从注册中心动态创建路由的功能
+          lower-case-service-id: true # 将服务名称转换为小写
+      routes:
+        - id: oauth2-auth-login
+          uri: lb://oauth2-auth
+          predicates:
+            - Path=/login
+          filters:
+            - PreserveHostHeader
+        - id: oauth2-auth-token
+          uri: lb://oauth2-auth
+          predicates:
+            - Path=/oauth/token
+          filters:
+            - PreserveHostHeader
+        - id: oauth2-auth-authorize
+          uri: lb://oauth2-auth
+          predicates:
+            - Path=/oauth/authorize
+          filters:
+            - PreserveHostHeader
+#        - id: api-test
+#          uri: lb://api-test
+#          predicates:
+#            - Path=/api/test/**
+#          filters:
+#            - StripPrefix=1
